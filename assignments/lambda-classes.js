@@ -42,10 +42,11 @@ class Instructor extends Person {
 
 class Student extends Person {
   constructor(stAttrs) {
+    super(stAttrs);
     this.previousBackground = stAttrs.previousBackground;
     this.className = stAttrs.className;
     this.favSubjects = stAttrs.favSubjects;
-    this.grade = sAttrs.grade;
+    this.grade = stAttrs.grade;
   }
   listsSubjects() {
     this.favSubjects.forEach(singleSubject => console.log(singleSubject));
@@ -53,7 +54,7 @@ class Student extends Person {
   PRAssignment(subject) {
     console.log(`${this.name} has submitted a PR for ${subject}`);
   }
-  sprintChallenge() {
+  sprintChallenge(subject) {
     console.log(`${this.name} has begun sprint challenge on ${subject}`);
   }
   graduate() {
@@ -98,10 +99,10 @@ const newStudent = new Student({
   age: 26,
   previousBackground: 'Js',
   className: 'webeu2',
-  favSubjetcs: ['CSS', 'JS', 'HTML'],
+  favSubjects: ['CSS', 'JS', 'HTML'],
   grade: 17
 });
-const newStudent = new ProjectManager({
+const newPm = new ProjectManager({
   name: 'PM1',
   location: 'Freetown',
   gender: 'Male',
@@ -114,3 +115,19 @@ const newStudent = new ProjectManager({
 });
 
 // Console logs
+newStudent.speak();
+newStudent.listsSubjects();
+newStudent.sprintChallenge('Js');
+newStudent.graduate();
+newStudent.PRAssignment('JavaScript');
+
+newPm.speak();
+newPm.standUp('WEBEU2');
+newStudent.grade;
+newPm.changeGrade(newStudent);
+newPm.changeGrade(newStudent);
+newPm.changeGrade(newStudent);
+newStudent.grade;
+newStudent.graduate();
+
+newPm.grade(newStudent, 'JS');
